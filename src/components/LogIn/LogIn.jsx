@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 
 const LogIn = () => {
+  const [active, setActive] = useState(true);
+
   return (
     <Container>
       <Form className="w-50 mx-auto mt-5 border border-2 rounded p-5">
@@ -14,10 +16,18 @@ const LogIn = () => {
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Accept terms & conditions" />
+          <Form.Check
+            onClick={() => setActive(!active)}
+            type="checkbox"
+            label="Accept terms & conditions"
+          />
         </Form.Group>
 
-        <Button className="w-100" variant="primary" type="submit">
+        <Button
+          className="w-100"
+          disabled={active}
+          variant="primary"
+          type="submit">
           Submit
         </Button>
       </Form>
