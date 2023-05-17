@@ -1,0 +1,9 @@
+/* navlink is like anchor thats why during styling we are using a */
+
+a {
+    color: white;
+}
+
+a.active {
+    color: lawngreen;
+}
