@@ -28,7 +28,7 @@ const LogIn = () => {
           disabled={active}
           variant="primary"
           type="submit">
-          Submit
+          Login
         </Button>
       </Form>
     </Container>
