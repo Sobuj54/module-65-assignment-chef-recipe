@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Navbar } from "react-bootstrap";
+import { Button, Navbar } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./NavBar.css";
 
 const NavBar = () => {
@@ -24,6 +24,9 @@ const NavBar = () => {
             Blog
           </NavLink>
         </div>
+        <Link to="/login">
+          <Button variant="info">Login</Button>
+        </Link>
       </Container>
     </Navbar>
   );
