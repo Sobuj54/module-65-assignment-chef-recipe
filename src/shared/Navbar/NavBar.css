@@ -7,3 +7,8 @@ a {
 a.active {
     color: lawngreen;
 }
+
+.hero-text {
+    height: 100vh;
+
+}
