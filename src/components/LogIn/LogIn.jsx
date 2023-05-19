@@ -6,7 +6,7 @@ const LogIn = () => {
 
   return (
     <Container>
-      <Form className="w-50 mx-auto mt-5 border border-2 rounded p-5">
+      <Form className="w-50 mx-auto mt-5 border border-2 rounded p-5 border-warning">
         <h3 className="mb-4">Login</h3>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control type="email" placeholder="Enter email" />

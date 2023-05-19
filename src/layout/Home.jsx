@@ -4,10 +4,10 @@ import NavBar from "../shared/Navbar/Navbar";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <NavBar></NavBar>
       <Outlet></Outlet>
-    </div>
+    </>
   );
 };
 
