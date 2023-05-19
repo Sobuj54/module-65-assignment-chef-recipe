@@ -5,12 +5,24 @@ import { Link } from "react-router-dom";
 const Register = () => {
   const [active, setActive] = useState(true);
 
+  const handleRegister = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    console.log(email, password);
+  };
+
   return (
     <Container>
-      <Form className="  w-50 mx-auto mt-5 border border-2 rounded p-5 border-warning mb-4">
+      <form
+        onSubmit={handleRegister}
+        className="  w-50 mx-auto mt-5 border border-2 rounded p-5 border-warning mb-4">
         <h3 className="mb-4">Register</h3>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3">
           <Form.Control
             type="text"
             name="name"
@@ -18,7 +30,7 @@ const Register = () => {
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3">
           <Form.Control
             type="email"
             name="email"
@@ -26,7 +38,7 @@ const Register = () => {
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3">
           <Form.Control
             type="password"
             name="password"
@@ -34,7 +46,7 @@ const Register = () => {
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3">
           <Form.Control
             type="password"
             name="confirm"
@@ -42,7 +54,7 @@ const Register = () => {
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Group className="mb-3">
           <Form.Check
             onClick={() => setActive(!active)}
             type="checkbox"
@@ -67,7 +79,7 @@ const Register = () => {
             </Link>
           </small>
         </p>
-      </Form>
+      </form>
     </Container>
   );
 };
