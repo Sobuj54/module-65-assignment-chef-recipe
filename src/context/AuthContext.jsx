@@ -6,6 +6,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
@@ -28,6 +29,12 @@ const AuthContext = ({ children }) => {
     return signOut(auth);
   };
 
+  const userProfile = (name, currentUser) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+    });
+  };
+
   //   must use useEffect to get the current user
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
@@ -39,7 +46,7 @@ const AuthContext = ({ children }) => {
     };
   }, []);
 
-  const userInfo = { user, signUp, signIn, logOut };
+  const userInfo = { user, signUp, signIn, logOut, userProfile };
 
   return (
     <cuisineContext.Provider value={userInfo}>

@@ -5,7 +5,7 @@ import { cuisineContext } from "../../context/AuthContext";
 
 const Register = () => {
   const [active, setActive] = useState(true);
-  const { signUp } = useContext(cuisineContext);
+  const { signUp, userProfile } = useContext(cuisineContext);
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -22,6 +22,14 @@ const Register = () => {
         // setting display name
         result.user.displayName = name;
         const newUser = result.user;
+        // update profile
+        userProfile(name, newUser)
+          .then(() => {
+            console.log("profile updated");
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
         console.log(newUser);
         form.reset();
       })
