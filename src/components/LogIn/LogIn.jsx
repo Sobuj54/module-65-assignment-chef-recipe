@@ -14,6 +14,15 @@ const LogIn = () => {
     const password = form.password.value;
 
     console.log(email, password);
+
+    signIn(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
