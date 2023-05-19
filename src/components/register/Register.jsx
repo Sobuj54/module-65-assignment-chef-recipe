@@ -19,9 +19,11 @@ const Register = () => {
 
     signUp(email, password)
       .then((result) => {
+        // setting display name
         result.user.displayName = name;
         const newUser = result.user;
         console.log(newUser);
+        form.reset();
       })
       .catch((error) => {
         console.log(error);

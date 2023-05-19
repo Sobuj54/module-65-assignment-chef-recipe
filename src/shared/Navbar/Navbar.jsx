@@ -31,7 +31,9 @@ const NavBar = () => {
             </NavLink>
           </div>
           <Link to="/login">
-            <Button variant="warning">Login</Button>
+            <Button className="text-white" variant="warning">
+              Login
+            </Button>
           </Link>
         </Container>
       </Navbar>

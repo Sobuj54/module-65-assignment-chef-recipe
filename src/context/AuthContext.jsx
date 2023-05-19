@@ -1,6 +1,10 @@
 import React from "react";
 import { createContext } from "react";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import app from "../firebase/firebase.config";
 
 export const cuisineContext = createContext(null);
@@ -12,7 +16,11 @@ const AuthContext = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const userInfo = { signUp };
+  const signIn = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const userInfo = { signUp, signIn };
 
   return (
     <cuisineContext.Provider value={userInfo}>
