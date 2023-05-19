@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Navbar } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import { Link, NavLink } from "react-router-dom";
 import "./NavBar.css";
+import { cuisineContext } from "../../context/AuthContext";
 
 const NavBar = () => {
+  const { user } = useContext(cuisineContext);
+
   return (
     <div
       style={{
@@ -30,11 +33,23 @@ const NavBar = () => {
               Blog
             </NavLink>
           </div>
-          <Link to="/login">
-            <Button className="text-white" variant="warning">
-              Login
-            </Button>
-          </Link>
+
+          {user ? (
+            <>
+              <span className="text-white">{user.email}</span>
+              <Link to="/login">
+                <Button className="text-white ms-4" variant="warning">
+                  Logout
+                </Button>
+              </Link>
+            </>
+          ) : (
+            <Link to="/login">
+              <Button className="text-white" variant="warning">
+                Login
+              </Button>
+            </Link>
+          )}
         </Container>
       </Navbar>
       <div className="hero-text d-flex align-items-center justify-content-center">
