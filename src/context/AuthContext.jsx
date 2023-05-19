@@ -1,14 +1,18 @@
 import React from "react";
 import { createContext } from "react";
-import { getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
 export const cuisineContext = createContext(null);
 
-export const authProvider = getAuth(app);
+export const auth = getAuth(app);
 
 const AuthContext = ({ children }) => {
-  const userInfo = {};
+  const signUp = (email, password) => {
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const userInfo = { signUp };
 
   return (
     <cuisineContext.Provider value={userInfo}>

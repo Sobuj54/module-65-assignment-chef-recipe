@@ -1,18 +1,31 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { cuisineContext } from "../../context/AuthContext";
 
 const Register = () => {
   const [active, setActive] = useState(true);
+  const { signUp } = useContext(cuisineContext);
 
   const handleRegister = (event) => {
     event.preventDefault();
 
     const form = event.target;
+    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
 
     console.log(email, password);
+
+    signUp(email, password)
+      .then((result) => {
+        result.user.displayName = name;
+        const newUser = result.user;
+        console.log(newUser);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
