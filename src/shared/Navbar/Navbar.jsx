@@ -6,7 +6,17 @@ import "./NavBar.css";
 import { cuisineContext } from "../../context/AuthContext";
 
 const NavBar = () => {
-  const { user } = useContext(cuisineContext);
+  const { user, logOut } = useContext(cuisineContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        console.log("logout complete");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div
@@ -38,7 +48,10 @@ const NavBar = () => {
             <>
               <span className="text-white">{user.email}</span>
               <Link to="/login">
-                <Button className="text-white ms-4" variant="warning">
+                <Button
+                  onClick={handleLogOut}
+                  className="text-white ms-4"
+                  variant="warning">
                   Logout
                 </Button>
               </Link>
