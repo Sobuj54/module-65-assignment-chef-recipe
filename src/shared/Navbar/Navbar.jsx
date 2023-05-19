@@ -19,13 +19,13 @@ const NavBar = () => {
           <Navbar.Brand className="me-6">Chefs Choice</Navbar.Brand>
           <div className="mx-auto ">
             <NavLink
-              className={`me-3 md-me-5 text-decoration-none  ${(isActive) =>
+              className={`me-3 me-md-5 text-decoration-none  ${(isActive) =>
                 isActive ? "active" : "text-white"}`}
               to="/">
               Home
             </NavLink>
             <NavLink
-              className={`me-2 md-me-5 text-decoration-none ${(isActive) =>
+              className={`me-2 me-md-5 text-decoration-none ${(isActive) =>
                 isActive ? "active" : " text-white"}`}
               to="/blog">
               Blog
