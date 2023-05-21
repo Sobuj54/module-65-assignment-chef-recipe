@@ -1,0 +1,24 @@
+.chefInfo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 100px 70px;
+}
+
+@media screen and (max-width: 576px) {
+    .chefInfo {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin: 50px 10px;
+    }
+}
+
+@media screen and (min-width: 577px) and (max-width:768px) {
+    .chefInfo {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin: 70px 10px;
+    }
+}
