@@ -13,7 +13,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Chef></Chef>,
-        loader: () => fetch("http://localhost:5000/chef"),
+        loader: () =>
+          fetch("https://chefs-choice-server-sobuj54.vercel.app/chef"),
       },
       {
         path: "login",
