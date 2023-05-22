@@ -30,7 +30,7 @@ const LogIn = () => {
     <Container>
       <form
         onSubmit={handleSignIn}
-        className="form_width mx-auto mt-5 border border-2 rounded  border-warning mb-4">
+        className="form_width mx-auto mt-5 border border-2 rounded  border-warning mb-5">
         <h3 className="mb-4">Login</h3>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control

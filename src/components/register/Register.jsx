@@ -49,7 +49,7 @@ const Register = () => {
     <Container>
       <form
         onSubmit={handleRegister}
-        className="form_width mx-auto mt-5 border border-2 rounded  border-warning mb-4">
+        className="form_width mx-auto mt-5 border border-2 rounded  border-warning mb-5">
         <h3 className="mb-4">Register</h3>
 
         <Form.Group className="mb-3">

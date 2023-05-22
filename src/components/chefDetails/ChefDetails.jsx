@@ -1,5 +1,6 @@
 import React from "react";
 import "./chefDetails.css";
+import { Button } from "react-bootstrap";
 
 const ChefDetails = ({ chef }) => {
   const { name, picture, yearsOfExperience, numRecipes, likes } = chef;
@@ -10,6 +11,11 @@ const ChefDetails = ({ chef }) => {
       <p className="fw-semibold mt-3">Experience: {yearsOfExperience} Years</p>
       <p className="fw-semibold">Recipes: {numRecipes}</p>
       <p className="fw-semibold">Likes: {likes}</p>
+      <div>
+        <Button variant="outline-success" className="w-100">
+          View Recipes
+        </Button>
+      </div>
     </div>
   );
 };
