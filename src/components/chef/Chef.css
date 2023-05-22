@@ -1,11 +1,26 @@
+.heading {
+    width: 200px;
+    margin: 100px auto 30px;
+}
+
 .chefInfo {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    margin: 100px 70px;
+    margin: 50px 70px;
 }
 
 @media screen and (max-width: 576px) {
+    .heading {
+        width: 150px;
+        margin: 100px auto 20px;
+    }
+
+    .description {
+        width: 320px;
+        margin: 0 auto 0;
+    }
+
     .chefInfo {
         display: grid;
         grid-template-columns: 1fr;
@@ -15,6 +30,12 @@
 }
 
 @media screen and (min-width: 577px) and (max-width:768px) {
+
+    .description {
+        width: 600px;
+        margin: 0 auto 0;
+    }
+
     .chefInfo {
         display: grid;
         grid-template-columns: repeat(2, 1fr);

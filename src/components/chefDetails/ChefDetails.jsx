@@ -7,9 +7,9 @@ const ChefDetails = ({ chef }) => {
     <div className="chefDetails">
       <h4>{name}</h4>
       <img src={picture} className="rounded image" />
-      <p>Experience: {yearsOfExperience} Years</p>
-      <p>Recipes: {numRecipes}</p>
-      <p>Likes: {likes}</p>
+      <p className="fw-semibold mt-3">Experience: {yearsOfExperience} Years</p>
+      <p className="fw-semibold">Recipes: {numRecipes}</p>
+      <p className="fw-semibold">Likes: {likes}</p>
     </div>
   );
 };
