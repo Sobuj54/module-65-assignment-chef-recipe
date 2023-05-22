@@ -37,6 +37,7 @@ const NavBar = () => {
           </NavLink>
         </div>
 
+        {/* conditional rendering of login and logout */}
         {user ? (
           <>
             <span className="text-white">{user.displayName}</span>
