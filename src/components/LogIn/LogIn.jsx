@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { cuisineContext } from "../../context/AuthContext";
+import "./LogIn.css";
 
 const LogIn = () => {
   const { signIn } = useContext(cuisineContext);
@@ -29,7 +30,7 @@ const LogIn = () => {
     <Container>
       <form
         onSubmit={handleSignIn}
-        className="  w-50 mx-auto mt-5 border border-2 rounded p-5 border-warning mb-4">
+        className="form_width mx-auto mt-5 border border-2 rounded  border-warning mb-4">
         <h3 className="mb-4">Login</h3>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control
