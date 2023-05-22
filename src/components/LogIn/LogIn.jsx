@@ -6,7 +6,7 @@ import "./LogIn.css";
 import { FaEye, FaEyeSlash, FaGoogle, FaGithub } from "react-icons/fa";
 
 const LogIn = () => {
-  const { signIn, googleSignIn } = useContext(cuisineContext);
+  const { signIn, googleSignIn, githubSignIn } = useContext(cuisineContext);
   const [error, setError] = useState(null);
   const [show, setShow] = useState(false);
 
@@ -33,6 +33,17 @@ const LogIn = () => {
 
   const handleGoogleLogIn = () => {
     googleSignIn()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleGithubLogIn = () => {
+    githubSignIn()
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
@@ -102,8 +113,11 @@ const LogIn = () => {
           </Button>
         </div>
         <div className="text-center mt-2">
-          <Button className="w-50  " variant="outline-success">
-            <FaGithub className="me-2" /> Continue with Google
+          <Button
+            onClick={handleGithubLogIn}
+            className="w-50  "
+            variant="outline-success">
+            <FaGithub className="me-2" /> Continue with Github
           </Button>
         </div>
       </form>

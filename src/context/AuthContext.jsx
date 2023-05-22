@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { createContext } from "react";
 import {
+  GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
@@ -15,8 +16,11 @@ import app from "../firebase/firebase.config";
 export const cuisineContext = createContext(null);
 
 export const auth = getAuth(app);
-
+// google provider
 const googleProvider = new GoogleAuthProvider();
+
+// github provider
+const githubProvider = new GithubAuthProvider();
 
 const AuthContext = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -24,6 +28,11 @@ const AuthContext = ({ children }) => {
   // google sign in
   const googleSignIn = () => {
     return signInWithPopup(auth, googleProvider);
+  };
+
+  // github login
+  const githubSignIn = () => {
+    return signInWithPopup(auth, githubProvider);
   };
 
   const signUp = (email, password) => {
@@ -55,7 +64,15 @@ const AuthContext = ({ children }) => {
     };
   }, []);
 
-  const userInfo = { user, signUp, signIn, logOut, userProfile, googleSignIn };
+  const userInfo = {
+    user,
+    signUp,
+    signIn,
+    logOut,
+    userProfile,
+    googleSignIn,
+    githubSignIn,
+  };
 
   return (
     <cuisineContext.Provider value={userInfo}>
