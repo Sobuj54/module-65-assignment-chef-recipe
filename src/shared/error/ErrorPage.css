@@ -1,0 +1,11 @@
+.error {
+    background-image: url("https://img.freepik.com/free-photo/falafel-hummus-pita-middle-eastern-arabic-dishes_2829-14253.jpg?size=626&ext=jpg");
+    background-size: cover;
+    height: 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
