@@ -1,11 +1,20 @@
 .chefDetails {
     border: 1px solid yellowgreen;
     border-radius: 15px;
-    padding: 30px;
+    padding: 20px 40px;
     background-color: rgb(241, 220, 220);
 }
 
 .image {
     width: 300px;
     height: 300px;
+}
+
+@media screen and (max-width: 576px) {
+    .chefDetails {
+        border: 1px solid yellowgreen;
+        border-radius: 15px;
+        padding: 20px 40px;
+        background-color: rgb(231, 216, 216);
+    }
 }
