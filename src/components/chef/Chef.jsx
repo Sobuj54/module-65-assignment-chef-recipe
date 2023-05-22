@@ -8,10 +8,10 @@ const Chef = () => {
   const chefs = useLoaderData();
 
   return (
-    <div>
+    <>
       <Banner></Banner>
       <h2 className="heading">Our Chefs</h2>
-      <p className=" description">
+      <p className="description">
         You can choose your favorite chef from here. We have world class chefs
         for you.
       </p>
@@ -20,7 +20,7 @@ const Chef = () => {
           <ChefDetails key={chef.id} chef={chef}></ChefDetails>
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

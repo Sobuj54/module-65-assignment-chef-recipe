@@ -3,6 +3,12 @@
     margin: 100px auto 30px;
 }
 
+
+.description {
+    width: 600px;
+    margin: 0 auto 0;
+}
+
 .chefInfo {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
