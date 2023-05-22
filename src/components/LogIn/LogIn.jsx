@@ -1,11 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { cuisineContext } from "../../context/AuthContext";
 import "./LogIn.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const LogIn = () => {
   const { signIn } = useContext(cuisineContext);
+  const [error, setError] = useState(null);
+  const [show, setShow] = useState(false);
 
   const handleSignIn = (event) => {
     event.preventDefault();
@@ -20,8 +23,10 @@ const LogIn = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        form.reset();
       })
       .catch((error) => {
+        setError("Email and Password didn't match !!!");
         console.log(error);
       });
   };
@@ -41,18 +46,27 @@ const LogIn = () => {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3 password-container">
           <Form.Control
-            type="password"
+            // showing password or text depending on condition
+            type={show ? "text" : "password"}
             name="password"
             placeholder="Password"
             required
           />
+
+          {/* conditionally showing eye and eyeslash icon */}
+          {show ? (
+            <FaEyeSlash className="icon" onClick={() => setShow(!show)} />
+          ) : (
+            <FaEye className="icon" onClick={() => setShow(!show)} />
+          )}
         </Form.Group>
 
         <Button className="w-100 " variant="primary" type="submit">
           Login
         </Button>
+        <p className="text-danger mt-3 text-center">{error ? error : ""}</p>
         <p className="mt-4 text-center">
           <small>
             New to this site ?

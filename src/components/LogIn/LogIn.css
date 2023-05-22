@@ -3,6 +3,16 @@
     padding: 50px;
 }
 
+.password-container {
+    position: relative;
+}
+
+.icon {
+    position: absolute;
+    top: 28%;
+    right: 4%;
+}
+
 @media screen and (max-width: 576px) {
     .form_width {
         width: 90%;
