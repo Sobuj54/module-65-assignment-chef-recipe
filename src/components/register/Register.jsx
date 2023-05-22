@@ -2,11 +2,14 @@ import React, { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { cuisineContext } from "../../context/AuthContext";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const [active, setActive] = useState(true);
   const [error, setError] = useState(null);
   const { signUp, userProfile } = useContext(cuisineContext);
+  const [showPass, setShowPass] = useState(false);
+  const [showConfirmPass, setShowConfirmPass] = useState(false);
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -68,21 +71,42 @@ const Register = () => {
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3 password-container">
           <Form.Control
-            type="password"
+            type={showPass ? "text" : "password"}
             name="password"
             placeholder="Password"
             required
           />
+          {/* showing eye icon depending on condition */}
+          {showPass ? (
+            <FaEyeSlash
+              className="icon"
+              onClick={() => setShowPass(!showPass)}
+            />
+          ) : (
+            <FaEye className="icon" onClick={() => setShowPass(!showPass)} />
+          )}
         </Form.Group>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3 password-container">
           <Form.Control
-            type="password"
+            type={showConfirmPass ? "text" : "password"}
             name="confirm"
             placeholder="Confirm Password"
             required
           />
+          {/* showing eye icon depending on condition */}
+          {showConfirmPass ? (
+            <FaEyeSlash
+              className="icon"
+              onClick={() => setShowConfirmPass(!showConfirmPass)}
+            />
+          ) : (
+            <FaEye
+              className="icon"
+              onClick={() => setShowConfirmPass(!showConfirmPass)}
+            />
+          )}
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Check
