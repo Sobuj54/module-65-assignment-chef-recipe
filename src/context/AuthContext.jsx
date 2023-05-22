@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { createContext } from "react";
 import {
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   updateProfile,
 } from "firebase/auth";
@@ -14,8 +16,15 @@ export const cuisineContext = createContext(null);
 
 export const auth = getAuth(app);
 
+const googleProvider = new GoogleAuthProvider();
+
 const AuthContext = ({ children }) => {
   const [user, setUser] = useState(null);
+
+  // google sign in
+  const googleSignIn = () => {
+    return signInWithPopup(auth, googleProvider);
+  };
 
   const signUp = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -46,7 +55,7 @@ const AuthContext = ({ children }) => {
     };
   }, []);
 
-  const userInfo = { user, signUp, signIn, logOut, userProfile };
+  const userInfo = { user, signUp, signIn, logOut, userProfile, googleSignIn };
 
   return (
     <cuisineContext.Provider value={userInfo}>

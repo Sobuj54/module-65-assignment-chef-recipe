@@ -3,10 +3,10 @@ import { Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { cuisineContext } from "../../context/AuthContext";
 import "./LogIn.css";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGoogle, FaGithub } from "react-icons/fa";
 
 const LogIn = () => {
-  const { signIn } = useContext(cuisineContext);
+  const { signIn, googleSignIn } = useContext(cuisineContext);
   const [error, setError] = useState(null);
   const [show, setShow] = useState(false);
 
@@ -27,6 +27,17 @@ const LogIn = () => {
       })
       .catch((error) => {
         setError("Email and Password didn't match !!!");
+        console.log(error);
+      });
+  };
+
+  const handleGoogleLogIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((error) => {
         console.log(error);
       });
   };
@@ -77,6 +88,24 @@ const LogIn = () => {
             </Link>
           </small>
         </p>
+        <hr />
+        <p className="text-center">
+          <small>or</small>
+        </p>
+        <hr />
+        <div className="text-center">
+          <Button
+            onClick={handleGoogleLogIn}
+            className="w-50  "
+            variant="outline-success">
+            <FaGoogle className="me-2" /> Continue with Google
+          </Button>
+        </div>
+        <div className="text-center mt-2">
+          <Button className="w-50  " variant="outline-success">
+            <FaGithub className="me-2" /> Continue with Google
+          </Button>
+        </div>
       </form>
     </Container>
   );
