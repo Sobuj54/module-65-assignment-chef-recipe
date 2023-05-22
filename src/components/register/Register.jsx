@@ -5,6 +5,7 @@ import { cuisineContext } from "../../context/AuthContext";
 
 const Register = () => {
   const [active, setActive] = useState(true);
+  const [error, setError] = useState(null);
   const { signUp, userProfile } = useContext(cuisineContext);
 
   const handleRegister = (event) => {
@@ -14,6 +15,12 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const confirm = form.confirm.value;
+
+    if (password !== confirm) {
+      setError("Passwords didn't match. Please enter same password.");
+      return;
+    }
 
     console.log(email, password);
 
@@ -92,6 +99,7 @@ const Register = () => {
           type="submit">
           Register
         </Button>
+        <p className="text-danger mt-3">{error ? error : ""}</p>
         <p className="mt-4 text-center">
           <small>
             Already have an account ?
