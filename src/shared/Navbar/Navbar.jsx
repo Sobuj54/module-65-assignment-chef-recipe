@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Button, Navbar } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import { Link, NavLink } from "react-router-dom";
@@ -40,7 +40,8 @@ const NavBar = () => {
         {/* conditional rendering of login and logout */}
         {user ? (
           <>
-            <span className="text-white">{user.displayName}</span>
+            <img className="photo-container" src={user.photoURL} alt="" />
+
             <Link to="/login">
               <Button
                 onClick={handleLogOut}
