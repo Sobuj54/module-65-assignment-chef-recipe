@@ -107,7 +107,7 @@ const LogIn = () => {
         <div className="text-center">
           <Button
             onClick={handleGoogleLogIn}
-            className="w-50  "
+            className="continue-button"
             variant="outline-success">
             <FaGoogle className="me-2" /> Continue with Google
           </Button>
@@ -115,7 +115,7 @@ const LogIn = () => {
         <div className="text-center mt-2">
           <Button
             onClick={handleGithubLogIn}
-            className="w-50  "
+            className="continue-button"
             variant="outline-success">
             <FaGithub className="me-2" /> Continue with Github
           </Button>
