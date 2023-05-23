@@ -6,6 +6,7 @@ import Register from "../components/register/Register";
 import Chef from "../components/chef/Chef";
 import ErrorPage from "../shared/error/ErrorPage";
 import Recipes from "../components/recipes/Recipes";
+import PrivateRoute from "../components/private/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,11 @@ const router = createBrowserRouter([
       },
       {
         path: "chef/:id",
-        element: <Recipes></Recipes>,
+        element: (
+          <PrivateRoute>
+            <Recipes></Recipes>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(
             `https://chefs-choice-server-sobuj54.vercel.app/chef/${params.id}`

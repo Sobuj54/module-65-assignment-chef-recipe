@@ -22,7 +22,7 @@ const Recipes = () => {
           <span className="fw-semibold">Recipes</span> : {numRecipes}
         </p>
         <p>
-          <span className="fw-semibold">Experience</span> : {yearsOfExperience}{" "}
+          <span className="fw-semibold">Experience</span> : {yearsOfExperience}
           years
         </p>
       </section>

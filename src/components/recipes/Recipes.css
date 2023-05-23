@@ -12,6 +12,10 @@
 }
 
 @media screen and (max-width: 576px) {
+    .chef-description {
+        width: 95%;
+    }
+
     .chef-description img {
         width: 95vw;
     }
