@@ -1,9 +1,10 @@
 import React from "react";
 import "./chefDetails.css";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const ChefDetails = ({ chef }) => {
-  const { name, picture, yearsOfExperience, numRecipes, likes } = chef;
+  const { id, name, picture, yearsOfExperience, numRecipes, likes } = chef;
   return (
     <div className="chefDetails">
       <h4>{name}</h4>
@@ -12,9 +13,11 @@ const ChefDetails = ({ chef }) => {
       <p className="fw-semibold">Recipes: {numRecipes}</p>
       <p className="fw-semibold">Likes: {likes}</p>
       <div>
-        <Button variant="outline-success" className="w-100">
-          View Recipes
-        </Button>
+        <Link to={`/chef/${id}`}>
+          <Button variant="outline-success" className="w-100">
+            View Recipes
+          </Button>
+        </Link>
       </div>
     </div>
   );
