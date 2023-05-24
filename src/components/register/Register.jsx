@@ -33,6 +33,7 @@ const Register = () => {
         // setting display name
         result.user.displayName = name;
         const newUser = result.user;
+
         // update profile
         userProfile(name, newUser, photo)
           .then(() => {
