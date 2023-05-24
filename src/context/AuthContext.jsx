@@ -54,9 +54,10 @@ const AuthContext = ({ children }) => {
     return signOut(auth);
   };
 
-  const userProfile = (name, currentUser) => {
+  const userProfile = (name, currentUser, photo) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
+      photoURL: photo,
     });
   };
 

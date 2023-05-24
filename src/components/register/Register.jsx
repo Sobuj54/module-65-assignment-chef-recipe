@@ -16,6 +16,7 @@ const Register = () => {
 
     const form = event.target;
     const name = form.name.value;
+    const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
     const confirm = form.confirm.value;
@@ -33,7 +34,7 @@ const Register = () => {
         result.user.displayName = name;
         const newUser = result.user;
         // update profile
-        userProfile(name, newUser)
+        userProfile(name, newUser, photo)
           .then(() => {
             console.log("profile updated");
           })
@@ -60,6 +61,14 @@ const Register = () => {
             type="text"
             name="name"
             placeholder="Enter Name"
+            required
+          />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Control
+            type="text"
+            name="photo"
+            placeholder="Photo URL  "
             required
           />
         </Form.Group>
