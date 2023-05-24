@@ -6,7 +6,15 @@ const PrivateRoute = ({ children }) => {
   const location = useLocation();
   console.log(location);
 
-  const { user } = useContext(cuisineContext);
+  const { user, loader } = useContext(cuisineContext);
+
+  if (loader) {
+    return (
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    );
+  }
 
   if (user) {
     return children;

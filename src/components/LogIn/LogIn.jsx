@@ -28,6 +28,7 @@ const LogIn = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        // redirecting the user to the desired page after log in
         navigate(location.state.from.pathname);
         form.reset();
       })
