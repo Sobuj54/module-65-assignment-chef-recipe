@@ -1,13 +1,17 @@
 import React, { useContext } from "react";
 import { cuisineContext } from "../../context/AuthContext";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
 const PrivateRoute = ({ children }) => {
+  const location = useLocation();
+  console.log(location);
+
   const { user } = useContext(cuisineContext);
+
   if (user) {
     return children;
   }
-  return <Navigate to="/login" replace></Navigate>;
+  return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
 };
 
 export default PrivateRoute;

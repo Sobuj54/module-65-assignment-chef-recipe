@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { cuisineContext } from "../../context/AuthContext";
 import "./LogIn.css";
 import { FaEye, FaEyeSlash, FaGoogle, FaGithub } from "react-icons/fa";
@@ -9,6 +9,11 @@ const LogIn = () => {
   const { signIn, googleSignIn, githubSignIn } = useContext(cuisineContext);
   const [error, setError] = useState(null);
   const [show, setShow] = useState(false);
+
+  const location = useLocation();
+  console.log(location);
+
+  const navigate = useNavigate();
 
   const handleSignIn = (event) => {
     event.preventDefault();
@@ -23,6 +28,7 @@ const LogIn = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        navigate(location.state.from.pathname);
         form.reset();
       })
       .catch((error) => {
@@ -36,6 +42,7 @@ const LogIn = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        navigate(location.state.from.pathname);
       })
       .catch((error) => {
         console.log(error);
@@ -47,6 +54,7 @@ const LogIn = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        navigate(location.state.from.pathname);
       })
       .catch((error) => {
         console.log(error);
