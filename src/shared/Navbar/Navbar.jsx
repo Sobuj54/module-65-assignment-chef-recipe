@@ -22,9 +22,9 @@ const NavBar = () => {
     <Navbar className="bg-primary bg-opacity-75 sticky-top" variant="dark">
       <Container>
         <Navbar.Brand className="me-6">Chefs Choice</Navbar.Brand>
-        <div className="mx-auto">
+        <div className="mx-md-auto">
           <NavLink
-            className={`me-3 me-md-5 text-decoration-none  ${(isActive) =>
+            className={`me-2 me-md-5 text-decoration-none  ${(isActive) =>
               isActive ? "active" : "text-white"}`}
             to="/">
             Home

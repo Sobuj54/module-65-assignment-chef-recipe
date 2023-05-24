@@ -30,7 +30,7 @@ const Recipes = () => {
         </section>
       </div>
       <div>
-        <h3 style={{ marginTop: "75px" }} className="text-center">
+        <h3 style={{ marginTop: "100px" }} className="text-center">
           Here are some recipes created by
           <span className="text-primary ms-2">{name}</span>
         </h3>
