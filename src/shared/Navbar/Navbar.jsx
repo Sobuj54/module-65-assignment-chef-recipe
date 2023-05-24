@@ -22,7 +22,7 @@ const NavBar = () => {
     <Navbar className="bg-primary bg-opacity-75 sticky-top" variant="dark">
       <Container>
         <Navbar.Brand className="me-6">Chefs Choice</Navbar.Brand>
-        <div className="mx-auto ">
+        <div className="nav">
           <NavLink
             className={`me-3 me-md-5 text-decoration-none  ${(isActive) =>
               isActive ? "active" : "text-white"}`}
@@ -35,29 +35,29 @@ const NavBar = () => {
             to="/blog">
             Blog
           </NavLink>
-        </div>
 
-        {/* conditional rendering of login and logout */}
-        {user ? (
-          <>
-            <img className="photo-container" src={user.photoURL} alt="" />
+          {/* conditional rendering of login and logout */}
+          {user ? (
+            <>
+              <img className="photo-container" src={user.photoURL} alt="" />
 
+              <Link to="/login">
+                <Button
+                  onClick={handleLogOut}
+                  className="text-white margin"
+                  variant="warning">
+                  Logout
+                </Button>
+              </Link>
+            </>
+          ) : (
             <Link to="/login">
-              <Button
-                onClick={handleLogOut}
-                className="text-white margin"
-                variant="warning">
-                Logout
+              <Button className="text-white" variant="warning">
+                Login
               </Button>
             </Link>
-          </>
-        ) : (
-          <Link to="/login">
-            <Button className="text-white" variant="warning">
-              Login
-            </Button>
-          </Link>
-        )}
+          )}
+        </div>
       </Container>
     </Navbar>
   );

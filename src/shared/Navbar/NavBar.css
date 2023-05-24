@@ -8,6 +8,15 @@ a.active {
     color: greenyellow;
 }
 
+.nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    width: 150px;
+    margin: 10px auto;
+}
+
+
 .photo-container {
     width: 40px;
     border-radius: 50%;
@@ -18,7 +27,18 @@ a.active {
 }
 
 @media screen and (max-width: 576px) {
+    .nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        background-color: rgb(143, 99, 99);
+        top: 55px;
+
+    }
+
     .margin {
-        margin-left: 5px;
+        margin-left: 2px;
     }
 }
