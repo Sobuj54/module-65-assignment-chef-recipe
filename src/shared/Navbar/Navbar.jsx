@@ -45,7 +45,7 @@ const NavBar = () => {
             <Link to="/login">
               <Button
                 onClick={handleLogOut}
-                className="text-white ms-4"
+                className="text-white margin"
                 variant="warning">
                 Logout
               </Button>
