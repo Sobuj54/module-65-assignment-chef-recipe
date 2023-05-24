@@ -37,7 +37,7 @@ const RecipeDetails = ({ recipe }) => {
           disabled={disabled}
           className="w-100"
           variant="success">
-          Favorite
+          Add to Favorite
         </Button>
         {/* toastContainer is a must because without it the toast pop up won't be displayed */}
         <ToastContainer />
