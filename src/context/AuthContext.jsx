@@ -22,6 +22,7 @@ const googleProvider = new GoogleAuthProvider();
 // github provider
 const githubProvider = new GithubAuthProvider();
 
+// component code starts here
 const AuthContext = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loader, setLoader] = useState(true);

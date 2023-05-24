@@ -5,16 +5,8 @@ import RecipeDetails from "../recipeDetails/RecipeDetails";
 
 const Recipes = () => {
   const chef = useLoaderData();
-  const {
-    name,
-    picture,
-    yearsOfExperience,
-    numRecipes,
-    likes,
-    bio,
-    id,
-    recipes,
-  } = chef;
+  const { name, picture, yearsOfExperience, numRecipes, likes, bio, recipes } =
+    chef;
 
   return (
     <>
@@ -32,13 +24,16 @@ const Recipes = () => {
             <span className="fw-semibold">Recipes</span> : {numRecipes}
           </p>
           <p>
-            <span className="fw-semibold">Experience</span> :{" "}
-            {yearsOfExperience}
+            <span className="fw-semibold">Experience</span> :{yearsOfExperience}
             years
           </p>
         </section>
       </div>
       <div>
+        <h3 style={{ marginTop: "75px" }} className="text-center">
+          Here are some recipes created by
+          <span className="text-primary ms-2">{name}</span>
+        </h3>
         {recipes.map((recipe) => (
           <RecipeDetails key={recipe.id} recipe={recipe}></RecipeDetails>
         ))}
