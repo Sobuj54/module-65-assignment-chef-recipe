@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import ChefDetails from "../chefDetails/ChefDetails";
 import "./Chef.css";
 import Banner from "../banner/Banner";
+import HomeRecipes from "../homeReicpes/HomeRecipes";
 
 const Chef = () => {
   const chefs = useLoaderData();
+
+  const [recipe, setRecipe] = useState([]);
+
+  useEffect(() => {
+    fetch("https://chefs-choice-server-sobuj54.vercel.app/recipe")
+      .then((res) => res.json())
+      .then((data) => setRecipe(data))
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <>
@@ -19,6 +31,9 @@ const Chef = () => {
         {chefs.map((chef) => (
           <ChefDetails key={chef.id} chef={chef}></ChefDetails>
         ))}
+      </div>
+      <div>
+        <HomeRecipes setRecipe={setRecipe} recipe={recipe}></HomeRecipes>
       </div>
     </>
   );
