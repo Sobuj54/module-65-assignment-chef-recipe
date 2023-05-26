@@ -33,7 +33,7 @@ const Chef = () => {
         ))}
       </div>
       <div>
-        <HomeRecipes setRecipe={setRecipe} recipe={recipe}></HomeRecipes>
+        <HomeRecipes recipe={recipe}></HomeRecipes>
       </div>
     </>
   );
