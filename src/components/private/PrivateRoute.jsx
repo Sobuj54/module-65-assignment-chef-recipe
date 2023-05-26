@@ -10,8 +10,17 @@ const PrivateRoute = ({ children }) => {
 
   if (loader) {
     return (
-      <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
+      <div
+        style={{
+          width: "100%",
+          height: "75vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}>
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
       </div>
     );
   }
