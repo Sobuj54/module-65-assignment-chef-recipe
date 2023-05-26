@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import HomeRecipeDetails from "../homeRecipeDetails/HomeRecipeDetails";
-import { Button } from "react-bootstrap";
 
 const HomeRecipes = ({ recipe }) => {
   const slicedRecipe = recipe.slice(0, 5);
+
   return (
     <div style={{ marginTop: "100px", marginBottom: "100px" }}>
       <h2 className="text-center">Here are few recipes</h2>
@@ -14,9 +14,6 @@ const HomeRecipes = ({ recipe }) => {
       {slicedRecipe.map((d) => (
         <HomeRecipeDetails key={d.id} recipes={d}></HomeRecipeDetails>
       ))}
-      <div>
-        <Button variant="outline-primary">Show more</Button>
-      </div>
     </div>
   );
 };
